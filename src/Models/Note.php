@@ -65,13 +65,6 @@ class Note implements JsonSerializable
     public $addTime;
 
     /**
-     * If true, then the results are filtered by Note to Lead pinning state.
-     * @maps pinned_to_lead_flag
-     * @var bool|null $pinnedToLeadFlag public property
-     */
-    public $pinnedToLeadFlag;
-
-    /**
      * If set, then results are filtered by note to deal pinning state (deal_id is also required).
      * @maps pinned_to_deal_flag
      * @var int|null $pinnedToDealFlag public property
@@ -101,14 +94,13 @@ class Note implements JsonSerializable
      * @param integer $personId                 Initialization value for $this->personId
      * @param integer $orgId                    Initialization value for $this->orgId
      * @param string  $addTime                  Initialization value for $this->addTime
-     * @param int     $pinnedToLeadFlag         Initialization value for $this->pinnedToLeadFlag
      * @param int     $pinnedToDealFlag         Initialization value for $this->pinnedToDealFlag
      * @param int     $pinnedToOrganizationFlag Initialization value for $this->pinnedToOrganizationFlag
      * @param int     $pinnedToPersonFlag       Initialization value for $this->pinnedToPersonFlag
      */
     public function __construct()
     {
-        if (11 == func_num_args()) {
+        if (10 == func_num_args()) {
             $this->content                  = func_get_arg(0);
             $this->userId                   = func_get_arg(1);
             $this->leadId                   = func_get_arg(2);
@@ -116,10 +108,9 @@ class Note implements JsonSerializable
             $this->personId                 = func_get_arg(4);
             $this->orgId                    = func_get_arg(5);
             $this->addTime                  = func_get_arg(6);
-            $this->pinnedToLeadFlag         = func_get_arg(7);
-            $this->pinnedToDealFlag         = func_get_arg(8);
-            $this->pinnedToOrganizationFlag = func_get_arg(9);
-            $this->pinnedToPersonFlag       = func_get_arg(10);
+            $this->pinnedToDealFlag         = func_get_arg(7);
+            $this->pinnedToOrganizationFlag = func_get_arg(8);
+            $this->pinnedToPersonFlag       = func_get_arg(9);
         }
     }
 
@@ -137,7 +128,6 @@ class Note implements JsonSerializable
         $json['person_id']                   = $this->personId;
         $json['org_id']                      = $this->orgId;
         $json['add_time']                    = $this->addTime;
-        $json['pinned_to_lead_flag']         = $this->pinnedToLeadFlag;
         $json['pinned_to_deal_flag']         = $this->pinnedToDealFlag;
         $json['pinned_to_organization_flag'] = $this->pinnedToOrganizationFlag;
         $json['pinned_to_person_flag']       = $this->pinnedToPersonFlag;

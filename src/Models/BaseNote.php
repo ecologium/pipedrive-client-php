@@ -41,17 +41,17 @@ class BaseNote implements JsonSerializable
     public $content;
 
     /**
-     * The Deal this Note is attached to
-     * @var \Pipedrive\Models\BaseNoteDealTitle|null $deal public property
-     */
-    public $deal;
-
-    /**
-     * The ID of the Lead the Note is attached to
+     * ID of the lead the note will be attached to.
      * @maps lead_id
      * @var string|null $leadId public property
      */
     public $leadId;
+
+    /**
+     * The Deal this Note is attached to
+     * @var \Pipedrive\Models\BaseNoteDealTitle|null $deal public property
+     */
+    public $deal;
 
     /**
      * The ID of the Deal the Note is attached to
@@ -92,13 +92,6 @@ class BaseNote implements JsonSerializable
      * @var integer|null $personId public property
      */
     public $personId;
-
-    /**
-     * If true, then the results are filtered by Note to Lead pinning state.
-     * @maps pinned_to_lead_flag
-     * @var bool|null $pinnedToLeadFlag public property
-     */
-    public $pinnedToLeadFlag;
 
     /**
      * If true, then the results are filtered by Note to Deal pinning state.
@@ -147,15 +140,14 @@ class BaseNote implements JsonSerializable
      * @param bool              $activeFlag               Initialization value for $this->activeFlag
      * @param string            $addTime                  Initialization value for $this->addTime
      * @param string            $content                  Initialization value for $this->content
-     * @param BaseNoteDealTitle $deal                     Initialization value for $this->deal
      * @param string            $leadId                   Initialization value for $this->leadId
+     * @param BaseNoteDealTitle $deal                     Initialization value for $this->deal
      * @param integer           $dealId                   Initialization value for $this->dealId
      * @param integer           $lastUpdateUserId         Initialization value for $this->lastUpdateUserId
      * @param integer           $orgId                    Initialization value for $this->orgId
      * @param Organization      $organization             Initialization value for $this->organization
      * @param Person            $person                   Initialization value for $this->person
      * @param integer           $personId                 Initialization value for $this->personId
-     * @param bool              $pinnedToLeadFlag         Initialization value for $this->pinnedToLeadFlag
      * @param bool              $pinnedToDealFlag         Initialization value for $this->pinnedToDealFlag
      * @param bool              $pinnedToOrganizationFlag Initialization value for $this->pinnedToOrganizationFlag
      * @param bool              $pinnedToPersonFlag       Initialization value for $this->pinnedToPersonFlag
@@ -165,26 +157,25 @@ class BaseNote implements JsonSerializable
      */
     public function __construct()
     {
-        if (19 == func_num_args()) {
+        if (18 == func_num_args()) {
             $this->id                       = func_get_arg(0);
             $this->activeFlag               = func_get_arg(1);
             $this->addTime                  = func_get_arg(2);
             $this->content                  = func_get_arg(3);
-            $this->deal                     = func_get_arg(4);
-            $this->leadId                   = func_get_arg(5);
+            $this->leadId                   = func_get_arg(4);
+            $this->deal                     = func_get_arg(5);
             $this->dealId                   = func_get_arg(6);
             $this->lastUpdateUserId         = func_get_arg(7);
             $this->orgId                    = func_get_arg(8);
             $this->organization             = func_get_arg(9);
             $this->person                   = func_get_arg(10);
             $this->personId                 = func_get_arg(11);
-            $this->pinnedToLeadFlag         = func_get_arg(12);
-            $this->pinnedToDealFlag         = func_get_arg(13);
-            $this->pinnedToOrganizationFlag = func_get_arg(14);
-            $this->pinnedToPersonFlag       = func_get_arg(15);
-            $this->updateTime               = func_get_arg(16);
-            $this->user                     = func_get_arg(17);
-            $this->userId                   = func_get_arg(18);
+            $this->pinnedToDealFlag         = func_get_arg(12);
+            $this->pinnedToOrganizationFlag = func_get_arg(13);
+            $this->pinnedToPersonFlag       = func_get_arg(14);
+            $this->updateTime               = func_get_arg(15);
+            $this->user                     = func_get_arg(16);
+            $this->userId                   = func_get_arg(17);
         }
     }
 
@@ -199,15 +190,14 @@ class BaseNote implements JsonSerializable
         $json['active_flag']                 = $this->activeFlag;
         $json['add_time']                    = $this->addTime;
         $json['content']                     = $this->content;
-        $json['deal']                        = $this->deal;
         $json['lead_id']                     = $this->leadId;
+        $json['deal']                        = $this->deal;
         $json['deal_id']                     = $this->dealId;
         $json['last_update_user_id']         = $this->lastUpdateUserId;
         $json['org_id']                      = $this->orgId;
         $json['organization']                = $this->organization;
         $json['person']                      = $this->person;
         $json['person_id']                   = $this->personId;
-        $json['pinned_to_lead_flag']         = $this->pinnedToLeadFlag;
         $json['pinned_to_deal_flag']         = $this->pinnedToDealFlag;
         $json['pinned_to_organization_flag'] = $this->pinnedToOrganizationFlag;
         $json['pinned_to_person_flag']       = $this->pinnedToPersonFlag;
