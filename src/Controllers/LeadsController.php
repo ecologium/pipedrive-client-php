@@ -79,7 +79,7 @@ class LeadsController extends BaseController
             'owner_id'        => $this->val($options, 'ownerId'),
             'filter_id'       => $this->val($options, 'filterId'),
             'archived_status' => $this->val($options, 'archivedStatus'),
-            'filter_id'       => $this->val($options, 'filterId'),
+			'organization_id' => $this->val($options, 'organization_id'),
             'start'           => $this->val($options, 'start', 0),
             'limit'           => $this->val($options, 'limit'),
             'sort'            => $this->val($options, 'sort'),
